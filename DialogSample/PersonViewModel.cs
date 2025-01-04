@@ -16,12 +16,7 @@ public partial class PersonViewModel:ObservableObject
     int _age;
     [ObservableProperty]
     string _address;
-    [ObservableProperty]
-    string _phone;
-    [ObservableProperty]
-    string _email;
-    [ObservableProperty]
-    string _website;
+   
 
 
 }
