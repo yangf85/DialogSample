@@ -11,20 +11,20 @@ namespace DialogSample;
 
 internal partial class PersonDialogViewModel : ObservableObject, IDialogRequestClose
 {
-    public event EventHandler<DialogRequestCloseEventArgs> RequestClosed;
-
     [ObservableProperty]
-     PersonViewModel _person = new PersonViewModel();
+    PersonViewModel _person = new PersonViewModel();
 
     [RelayCommand]
-     void Confirm()
+    void Confirm()
     {
-        RequestClosed?.Invoke(this, new DialogRequestCloseEventArgs(true));
+        RequestClosed?.Invoke(this, new DialogRequestCloseEventArgs(true));//发送关闭窗口的请求，并设置窗口关闭的结果是true
     }
 
     [RelayCommand]
     void Cancel()
     {
-        RequestClosed?.Invoke(this, new DialogRequestCloseEventArgs(false));
+        RequestClosed?.Invoke(this, new DialogRequestCloseEventArgs(false));//发送关闭窗口的请求，并设置窗口关闭的结果是false
     }
+
+    public event EventHandler<DialogRequestCloseEventArgs> RequestClosed;
 }

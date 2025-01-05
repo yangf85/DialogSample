@@ -16,18 +16,18 @@ namespace DialogSample
         {
             base.OnStartup(e);
             var window = new MainWindow();
-            
 
             var dialogService = new DialogService(window);
             dialogService.Register<PersonDialogViewModel, PersonDialog>();
 
-            var service=new ServiceCollection();
+            var service = new ServiceCollection();
             service.AddSingleton<IDialogService>(dialogService);
             service.AddSingleton<MainViewModel>();
             Ioc.Default.ConfigureServices(service.BuildServiceProvider());
             window.DataContext = Ioc.Default.GetRequiredService<MainViewModel>();
             window.Show();
+            //var testWindow = new TestWindow();
+            //testWindow.ShowDialog();
         }
     }
-
 }
